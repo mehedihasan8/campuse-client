@@ -35,7 +35,9 @@ const ClasseCard = ({ d }) => {
           Research History: {d.research_history}
         </p>
         <Link to={`/details/${d.id}`}>
-          <button className="btn  mt-2">Details</button>
+          <button className="btn  mt-2  inline-block px-12 py-3 text-sm font-medium text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring ">
+            Details
+          </button>
         </Link>
       </div>
     </div>
