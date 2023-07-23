@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home/Home";
 import Error from "../pages/Sharied/Error";
 import AllCollege from "../pages/AllCollege/AllCollege";
 import CollegeDetails from "../pages/AllCollege/CollegeDetails/CollegeDetails";
+import Admission from "../pages/Admission/Admission";
+import AdmissionForm from "../pages/Admission/AdmissionForm";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
       {
         path: "/college",
         element: <AllCollege />,
+      },
+      {
+        path: "/admission",
+        element: <Admission />,
+      },
+      {
+        path: "/admission/:collegeName",
+        element: <AdmissionForm></AdmissionForm>,
       },
       {
         path: "/details/:id",
