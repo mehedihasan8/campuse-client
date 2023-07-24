@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import "./NavBar.css";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
   return (
     <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
@@ -75,7 +79,7 @@ const NavBar = () => {
             </li>
             <li>
               <Link
-                to="/college"
+                to="college"
                 className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Collages
@@ -83,7 +87,7 @@ const NavBar = () => {
             </li>
             <li>
               <Link
-                to="/admission"
+                to="admission"
                 className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Admission
@@ -91,12 +95,43 @@ const NavBar = () => {
             </li>
             <li>
               <Link
-                to="myCollages"
+                to="mycollege"
                 className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 My Collages
               </Link>
             </li>
+            {user?.email ? (
+              <>
+                <img
+                  className={user.photoURL ? "img-menu" : ""}
+                  title={user?.displayName}
+                  src={user?.photoURL}
+                  alt=""
+                />
+                <Link
+                  onClick={logOut}
+                  className="font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white mx-2 log-btn"
+                >
+                  Log out
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  className="font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white mx-2 log-btn"
+                  to="/login"
+                >
+                  Login
+                </Link>
+                <Link
+                  className="font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white reg-btn mx-2"
+                  to="/sign"
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
           </ul>
         </div>
       </div>

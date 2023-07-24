@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
 const AdmissionForm = () => {
+  const { user } = useContext(AuthContext);
   const { collegeName } = useParams();
   const [loading, setLoading] = useState(false);
 
@@ -31,22 +34,59 @@ const AdmissionForm = () => {
         if (imgRes.success) {
           const imgURL = imgRes.data.display_url;
           console.log(imgURL);
-          setLoading(false);
-          reset();
+          const {
+            candidateName,
+            subject,
+            candidateEmail,
+            candidatePhone,
+            address,
+            dateOfBirth,
+          } = data;
+          const studentInfo = {
+            candidateName,
+            subject,
+            candidateEmail,
+            candidatePhone,
+            address,
+            dateOfBirth,
+            imgURL,
+            collegeName,
+            email: user?.email,
+          };
+          fetch("http://localhost:5000/student", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(studentInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Success!",
+                  text: "Added Successfully",
+                  icon: "success",
+                  confirmButtonText: "Ok",
+                });
+                setLoading(false);
+              }
+            });
         }
       });
   };
 
   return (
-    <div className="mx-auto p-4 w-[60%] bg-transparent md:my-8">
+    <div className="mx-auto p-4 md:w-[60%] bg-transparent md:my-8">
       <h2 className="text-2xl text-center mb-8 font-bold ">
         {collegeName} Admission Form
       </h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        className="grid grid-cols-2 gap-4"
       >
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="candidateName" className="block font-bold">
             Candidate Name:
           </label>
@@ -62,7 +102,7 @@ const AdmissionForm = () => {
             <span className="text-red-500">{errors.candidateName.message}</span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="subject" className="block font-bold">
             Subject:
           </label>
@@ -76,7 +116,7 @@ const AdmissionForm = () => {
             <span className="text-red-500">{errors.subject.message}</span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="candidateEmail" className="block font-bold">
             Candidate Email:
           </label>
@@ -98,7 +138,7 @@ const AdmissionForm = () => {
             </span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="candidatePhone" className="block font-bold">
             Candidate Phone number:
           </label>
@@ -116,7 +156,7 @@ const AdmissionForm = () => {
             </span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="address" className="block font-bold">
             Address:
           </label>
@@ -130,7 +170,7 @@ const AdmissionForm = () => {
             <span className="text-red-500">{errors.address.message}</span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="dateOfBirth" className="block font-bold">
             Date of Birth:
           </label>
