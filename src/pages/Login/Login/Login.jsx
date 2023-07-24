@@ -73,7 +73,7 @@ const Login = () => {
             </form>
             <p className="my-4 text-center">
               New to Car Toy Emporium{" "}
-              <Link className="text-orange-600 font-bold ms-1" to="/signup">
+              <Link className="text-orange-600 font-bold ms-1" to="/sign">
                 Register
               </Link>
             </p>
