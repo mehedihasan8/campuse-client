@@ -53,7 +53,7 @@ const AdmissionForm = () => {
             collegeName,
             email: user?.email,
           };
-          fetch("http://localhost:5000/student", {
+          fetch("https://campuse-server.vercel.app/student", {
             method: "POST",
             headers: {
               "content-type": "application/json",

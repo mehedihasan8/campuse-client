@@ -17,7 +17,9 @@ const Hero = () => {
               Harvard University is the oldest university in the United States.
             </p>
             <div>
-              <button className="btn btn-success mr-5">More Information</button>
+              <button className="inline-block px-12 py-3 text-sm font-medium text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-white hover:text-black focus:outline-none focus:ring">
+                More Information
+              </button>
             </div>
           </div>
         </div>
@@ -42,7 +44,9 @@ const Hero = () => {
               Best Colleges is National Universities.
             </p>
             <div>
-              <button className="btn btn-success mr-5">More Information</button>
+              <button className="inline-block px-12 py-3 text-sm font-medium text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-white hover:text-black focus:outline-none focus:ring">
+                More Information
+              </button>
             </div>
           </div>
         </div>
@@ -67,7 +71,9 @@ const Hero = () => {
               international student communities in the United States.
             </p>
             <div>
-              <button className="btn btn-success mr-5">More Information</button>
+              <button className="inline-block px-12 py-3 text-sm font-medium text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-white hover:text-black focus:outline-none focus:ring">
+                More Information
+              </button>
             </div>
           </div>
         </div>
@@ -90,7 +96,9 @@ const Hero = () => {
               excellence.
             </p>
             <div>
-              <button className="btn btn-success mr-5">More Information</button>
+              <button className="inline-block px-12 py-3 text-sm font-medium text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-white hover:text-black focus:outline-none focus:ring">
+                More Information
+              </button>
             </div>
           </div>
         </div>

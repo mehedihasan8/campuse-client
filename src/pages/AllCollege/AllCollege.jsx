@@ -16,7 +16,7 @@ const AllCollege = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/classes")
+    fetch("https://campuse-server.vercel.app/classes")
       .then((res) => res.json())
       .then((data) => getData(data));
   }, []);
@@ -44,8 +44,8 @@ const AllCollege = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center my-5 bg-slate-100 p-20 rounded">
         {
           // eslint-disable-next-line react/jsx-key
-          filteredEngineers.map((d) => (
-            <Card key={d.id} d={d}></Card>
+          filteredEngineers.map((item) => (
+            <Card key={item.id} item={item}></Card>
           ))
         }
       </div>

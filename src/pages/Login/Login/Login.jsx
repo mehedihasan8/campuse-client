@@ -23,8 +23,21 @@ const Login = () => {
         console.log(user);
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error.message));
   };
+
+  //   const handelForgot = () => {
+  //     forgetpass()
+  //       .then(() => {
+  //         // Password reset email sent!
+  //         // ..
+  //       })
+  //       .catch((error) => {
+  //         const errorCode = error.code;
+  //         const errorMessage = error.message;
+  //         // ..
+  //       });
+  //   };
 
   return (
     <div className="hero min-h-screen bg-base-200 pt-28 pb-6">
@@ -58,9 +71,9 @@ const Login = () => {
                   className="input input-bordered"
                 />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <button className="label-text-alt link link-hover">
                     Forgot password?
-                  </a>
+                  </button>
                 </label>
               </div>
               <div className="form-control mt-6">

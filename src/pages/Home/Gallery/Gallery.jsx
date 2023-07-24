@@ -13,7 +13,7 @@ const Gallery = () => {
   // }, []);
 
   return (
-    <div className="bg-[#80BD9E] py-16">
+    <div className="bg-[#6FB9B9] py-16">
       <h2 className="text-4xl text-center font-bold mb-6 text-black">
         New Arrivals
       </h2>

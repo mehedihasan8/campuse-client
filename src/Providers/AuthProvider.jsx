@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -17,6 +18,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState([]);
+  console.log(user?.email);
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(null);
 
@@ -28,6 +30,11 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const forgetpass = () => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, user?.email);
   };
 
   const updateUser = (upUser, name, photoUrl) => {
@@ -67,6 +74,7 @@ const AuthProvider = ({ children }) => {
     loading,
     signInWithGoogle,
     setReload,
+    forgetpass,
   };
 
   return (

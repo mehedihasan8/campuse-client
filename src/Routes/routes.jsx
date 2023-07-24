@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: <Error />,
+    // errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -56,8 +56,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <CollegeDetails></CollegeDetails>,
-        loader: () => fetch("/data.json/"),
+        element: (
+          <PrivetRoutes>
+            <CollegeDetails></CollegeDetails>
+          </PrivetRoutes>
+        ),
+        loader: () => fetch("https://campuse-server.vercel.app/classes"),
       },
     ],
   },

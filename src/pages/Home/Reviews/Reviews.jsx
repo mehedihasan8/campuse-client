@@ -8,7 +8,7 @@ const Reviews = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://campuse-server.vercel.app/review")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
@@ -40,7 +40,7 @@ const Reviews = () => {
   };
 
   return (
-    <div className="py-5">
+    <div className="py-20">
       <h3 className="text-center font-bold text-2xl">Customer Testimonials</h3>
       <div className="container mx-auto max-w-2xl mt-10">
         <Slider {...settings}>
