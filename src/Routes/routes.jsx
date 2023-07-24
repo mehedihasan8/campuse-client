@@ -9,12 +9,14 @@ import AdmissionForm from "../pages/Admission/AdmissionForm";
 import Login from "../pages/Login/Login/Login";
 import SignUp from "../pages/Login/SignUp/SignUp";
 import MyColleges from "../pages/MyColleges/MyColleges";
+import Profile from "../pages/Profile/Profile";
+import PrivetRoutes from "./PrivetRoutes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    // errorElement: <Error />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -25,8 +27,16 @@ const router = createBrowserRouter([
         element: <AllCollege />,
       },
       {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
         path: "/mycollege",
-        element: <MyColleges />,
+        element: (
+          <PrivetRoutes>
+            <MyColleges />,
+          </PrivetRoutes>
+        ),
       },
       {
         path: "/admission",

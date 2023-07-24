@@ -16,10 +16,11 @@ const AllCollege = () => {
   });
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch("http://localhost:5000/classes")
       .then((res) => res.json())
       .then((data) => getData(data));
   }, []);
+
   return (
     <div className="bg-slate-100 py-5">
       <h1 className="text-center text-4xl font-bold mt-20 mb-2 font-mono uppercase">

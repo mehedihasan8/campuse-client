@@ -16,7 +16,7 @@ const PopulerClasses = () => {
   });
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch("http://localhost:5000/classes")
       .then((res) => res.json())
       .then((data) => getData(data));
   }, []);

@@ -93,6 +93,7 @@ const AdmissionForm = () => {
           <input
             type="text"
             id="candidateName"
+            value={user?.displayName}
             {...register("candidateName", {
               required: "Candidate Name is required",
             })}
@@ -122,6 +123,7 @@ const AdmissionForm = () => {
           </label>
           <input
             type="email"
+            defaultValue={user?.email}
             id="candidateEmail"
             {...register("candidateEmail", {
               required: "Candidate Email is required",
