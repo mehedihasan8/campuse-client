@@ -1,8 +1,41 @@
-# React + Vite
+## My Awesome Campuse Website Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Campuse is an awesome project that showcases various classes and provides information about them.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse and search for different College
+
+- View detailed information and specifications of each College
+
+- User authentication and account management and save user data
+
+## Technologies Used
+
+- React: JavaScript library for building user interfaces
+
+- Node.js: JavaScript runtime environment
+
+- Express: Web application framework for Node.js
+
+- MongoDB: NoSQL database for storing car data
+
+- Tailwind CSS: Utility-first CSS framework for styling
+
+## Live Link
+
+- Hosted in Firebase -> [campuse](https://the-news-dragon-client-8a322.web.app/)
+
+## Api Link
+
+- Hosted in Varcel -> [campuse Api Link ](https://campuse-server.vercel.app/classes)
+
+## Installation
+
+- React Router Dom v6.4 : Documentation Link -> [Link](https://reactrouter.com/en/main/start/overview)
+
+- Tailwind : Documentation Link -> [Link](https://tailwindcss.com/docs/installation)
+
+- daisyui : Documentation Link -> [Link](https://daisyui.com/docs/install)
+
+- Resources & Credits : Icon -> [React icon ](https://react-icons.github.io/react-icons/)
